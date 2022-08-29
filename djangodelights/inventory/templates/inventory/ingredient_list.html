@@ -1,0 +1,34 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block head %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/style.css' %}" />
+</head>
+{% endblock %}
+
+<body>
+    <main>
+        {% block content %}
+        <h1>Django Delights Inventory</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Price per unit</th>
+            </tr>
+            Inventory items:
+            {% for item in ingredient_list %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.unit }}</td>
+                <td>{{ item.unit_price }}</td>
+            </tr>
+            {% endfor %}
+            {% endblock %}
+        </table>
+    </main>
+    
+</body>
