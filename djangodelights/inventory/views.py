@@ -1,12 +1,11 @@
-from curses.ascii import HT
-from tkinter import Menu
-from typing import List
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, TemplateView
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 # Create your views here.
 
+class HomeView(TemplateView):
+    template_name = 'inventory/home.html'
 
 def list_inventory(request):
     inventory_list = Ingredient.objects.all()
