@@ -1,4 +1,3 @@
-from re import M
 from django.db import models
 
 # Create your models here.
@@ -48,4 +47,3 @@ class RecipeRequirement(models.Model):
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     timestamp = models.DateTimeField()
-

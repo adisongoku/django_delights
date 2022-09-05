@@ -1,0 +1,29 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block head %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/style.css' %}" />
+</head>
+{% endblock %}
+
+<body>
+    <main>
+        {% block content %}
+        <h1>Django Delights Purchases</h1>
+        <table>
+            <tr>
+                <th>Menu item</th>
+                <th>Timestamp</th>
+            </tr>
+            Purchased items:
+            {% for item in purchase_list %}
+            <tr>
+                <td>{{ item.menu_item }}</td>
+                <td>{{ item.timestamp }}</td>
+            </tr>
+            {% endfor %}
+            {% endblock %}
+        </table>
+    </main>
+    
+</body>
