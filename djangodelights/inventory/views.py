@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, TemplateView
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
-from django.db.models import Sum
+from django.db.models import Sum, F
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -35,8 +36,16 @@ class ReportView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['purchases'] = Purchase.objects.all()
         revenue = Purchase.objects.aggregate(revenue=Sum('menu_item__price'))['revenue']
-
         context['revenue'] = revenue
+        costs = 0
+        for purchase in Purchase.objects.all():
+            for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
+                costs += recipe_requirement.ingredient.unit_price * \
+                    recipe_requirement.quantity
+
+
+        context['costs'] = costs
+        context['profit'] = revenue - costs
 
         return context
 
