@@ -50,3 +50,7 @@ class ReportView(TemplateView):
         return context
 
 
+class AddMenuItem(CreateView):
+    model = MenuItem
+    form_class = MenuItemForm
+    template_name = 'inventory/add_menu_item.html'
