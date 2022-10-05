@@ -27,8 +27,11 @@
                 <td>{{ item.unit_price }}</td>
             </tr>
             {% endfor %}
-            {% endblock %}
         </table>
+        <a href="{% url 'add_ingredient' %}">Add ingredient</a>
+        
     </main>
+    {% endblock %}
+
     
 </body>

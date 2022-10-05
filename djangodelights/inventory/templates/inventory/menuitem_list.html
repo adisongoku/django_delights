@@ -18,11 +18,13 @@
         Menu items:
         {% for item in menuitem_list %}
         <tr>
-            <td>{{ item.title }}</td>
+            <td><a href= "{% url 'add_recipe_requirements' %}">{{ item.title }}</a></td>
             <td>{{ item.price }}</td>
         </tr>
         {% endfor %}
     </table>
+
+    <a href="{% url 'add_menu_item' %}">Add menu item</a>
 
     {% endblock %}
     </main>
