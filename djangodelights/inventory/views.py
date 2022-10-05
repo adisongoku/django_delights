@@ -66,3 +66,5 @@ class AddRecipeRequirements(CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirement
     template_name = 'inventory/add_recipe_requirements.html'
+
+
