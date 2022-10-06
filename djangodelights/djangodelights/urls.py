@@ -22,10 +22,11 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('inventory/', views.InventoryView.as_view(), name='inventory'),
     path('menu/', views.MenuItemView.as_view(), name='menu'),
-    path('menu/<int:id>/', views.AddRecipeRequirements.as_view(), name='add_recipe_requirements'),
     path('purchase/', views.PurchaseView.as_view(), name='purchase'),
     path('report/', views.ReportView.as_view(), name='report'),
     path('add_menu_item/', views.AddMenuItem.as_view(), name='add_menu_item'),
-    path('add_ingredient/', views.AddIngredient.as_view(), name='add_ingredient')
-
+    path('add_ingredient/', views.AddIngredient.as_view(), name='add_ingredient'),
+    path('add_recipe_requirements/', views.AddRecipeRequirements.as_view(), name='add_recipe_requirements'),
+    path('add_new_purchase/', views.AddNewPurchase.as_view(), name='add_new_purchase'),
+    path('inventory/<pk>/update_ingredient', views.UpdateIngredient.as_view(), name='update_ingredient')
 ]

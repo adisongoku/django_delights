@@ -30,7 +30,7 @@ class Ingredient(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return "/inventory/"
+        return "/inventory"
         
 
 class MenuItem(models.Model):
@@ -58,4 +58,4 @@ class Purchase(models.Model):
     timestamp = models.DateTimeField()
 
     def get_absolute_url(self):
-        return "/inventory/"
+        return "/purchase/"

@@ -5,6 +5,7 @@ from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.db.models import Sum, F
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import *
+import datetime
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -64,7 +65,15 @@ class AddIngredient(CreateView):
 
 class AddRecipeRequirements(CreateView):
     model = RecipeRequirement
-    form_class = RecipeRequirement
+    form_class = RecipeRequirementsForm
     template_name = 'inventory/add_recipe_requirements.html'
 
+class AddNewPurchase(CreateView):
+    model = Purchase
+    form_class = PurchaseForm
+    template_name = 'inventory/add_new_purchase.html'
 
+class UpdateIngredient(UpdateView):
+    model = Ingredient
+    form_class = IngredientForm
+    template_name = 'inventory/update_ingredient.html'

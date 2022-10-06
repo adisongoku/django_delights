@@ -21,9 +21,10 @@
                 <td>{{ item.menu_item }}</td>
                 <td>{{ item.timestamp }}</td>
             </tr>
-            {% endfor %}
-            {% endblock %}
+            {% endfor %}           
         </table>
+
+        <a href="{% url 'add_new_purchase' %}">Add new purchase</a>
     </main>
-    
+    {% endblock %}
 </body>
