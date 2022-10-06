@@ -20,6 +20,7 @@ from inventory import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomeView.as_view(), name='home'),
+    path('home/', include('django.contrib.auth.urls'), name='login'),
     path('inventory/', views.InventoryView.as_view(), name='inventory'),
     path('menu/', views.MenuItemView.as_view(), name='menu'),
     path('purchase/', views.PurchaseView.as_view(), name='purchase'),
@@ -28,5 +29,7 @@ urlpatterns = [
     path('add_ingredient/', views.AddIngredient.as_view(), name='add_ingredient'),
     path('add_recipe_requirements/', views.AddRecipeRequirements.as_view(), name='add_recipe_requirements'),
     path('add_new_purchase/', views.AddNewPurchase.as_view(), name='add_new_purchase'),
-    path('inventory/<pk>/update_ingredient', views.UpdateIngredient.as_view(), name='update_ingredient')
+    path('inventory/<pk>/update_ingredient', views.UpdateIngredient.as_view(), name='update_ingredient'),
+    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('logout/', views.logout_request, name='logout')
 ]
